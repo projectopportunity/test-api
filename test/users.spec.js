@@ -5,7 +5,7 @@ const Procmonrest = require('procmonrest')
 const path = require('path')
 
 describe('users route', function () {
-  this.timeout(5000) // ms teams ftw
+  this.timeout(9001) // ms teams ftw
 
   const serverProcess = new Procmonrest({
     waitFor: /listening/,
@@ -33,7 +33,7 @@ describe('users route', function () {
           password: 'test'
         }
 
-        return axios.post('http://localhost:3000/users', data, { validateStatus: false })
+        return axios.post('http://localhost:3000/api/users', data, { validateStatus: false })
           .then((response) => {
             res = response
           })
@@ -43,6 +43,18 @@ describe('users route', function () {
         const expected = 201
         const actual = res.status
         expect(actual).to.equal(expected)
+      })
+
+      it('must be empty', () => {
+        const expected = ''
+        const actual = res.data
+        expect(actual).to.equal(expected)
+      })
+
+      describe('the header', () => {
+        it('must include location', () => {
+          expect(res.headers).to.have.property('location')
+        })
       })
     })
   })
