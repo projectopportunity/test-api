@@ -22,16 +22,50 @@ describe('users route', function () {
   })
 
   context('when required fields are missing', () => {
-    context('when the first name is missing', () => {
-      describe('the response', () => {
+    const invalidData = [
+      {
+        description: 'missing first name',
+        input: {
+          lastName: 'test',
+          emailAddress: 'test@example.com',
+          password: 'test'
+        },
+        output: {
+          errors: ['missing required field firstName']
+        }
+      },
+      {
+        description: 'missing last name',
+        input: {
+          firstName: 'test',
+          emailAddress: 'test@example.com',
+          password: 'test'
+        },
+        output: {
+          errors: ['missing required field lastName']
+        }
+      },
+      {
+        description: 'missing first and last name',
+        input: {
+          emailAddress: 'test@example.com',
+          password: 'test'
+        },
+        output: {
+          errors: [
+            'missing required field firstName',
+            'missing required field lastName'
+          ]
+        }
+      }
+    ]
+
+    invalidData.forEach((datum) => {
+      describe(`the response for ${datum.description}`, () => {
         let res
 
         before(() => {
-          const data = {
-            lastName: 'test',
-            emailAddress: 'test@example.com',
-            password: 'test'
-          }
+          const data = datum.input
 
           return axios.post('http://localhost:3000/api/users', data, { validateStatus: false })
             .then((response) => {
@@ -46,42 +80,7 @@ describe('users route', function () {
         })
 
         it('must have the expected body', () => {
-          const expected = {
-            errors: ['missing required field first name']
-          }
-          const actual = res.data
-          expect(actual).to.deep.equal(expected)
-        })
-      })
-    })
-
-    context('when the last name is missing', () => {
-      describe('the response', () => {
-        let res
-
-        before(() => {
-          const data = {
-            firstName: 'test',
-            emailAddress: 'test@example.com',
-            password: 'test'
-          }
-
-          return axios.post('http://localhost:3000/api/users', data, { validateStatus: false })
-            .then((response) => {
-              res = response
-            })
-        })
-
-        it('must have the correct status code', () => {
-          const expected = 400
-          const actual = res.status
-          expect(actual).to.equal(expected)
-        })
-
-        it('must have the expected body', () => {
-          const expected = {
-            errors: ['missing required field last name']
-          }
+          const expected = datum.output
           const actual = res.data
           expect(actual).to.deep.equal(expected)
         })
