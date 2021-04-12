@@ -4,7 +4,9 @@ const axios = require('axios')
 const Procmonrest = require('procmonrest')
 const path = require('path')
 
-describe('users route', () => {
+describe('users route', function () {
+  this.timeout(5000) // ms teams ftw
+
   const serverProcess = new Procmonrest({
     waitFor: /listening/,
     saveLogTo: path.join(__dirname, 'users.log')
@@ -30,6 +32,7 @@ describe('users route', () => {
           emailAddress: 'test@example.com',
           password: 'test'
         }
+
         return axios.post('http://localhost:3000/users', data, { validateStatus: false })
           .then((response) => {
             res = response
