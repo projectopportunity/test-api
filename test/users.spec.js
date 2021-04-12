@@ -21,6 +21,34 @@ describe('users route', function () {
     }
   })
 
+
+  context('when required fields are missing', () => {
+    context('when the first name is missing', () => {
+      describe('the response', () => {
+        let res
+
+      before(() => {
+        const data = {
+          lastName: 'test',
+          emailAddress: 'test@example.com',
+          password: 'test'
+        }
+
+        return axios.post('http://localhost:3000/api/users', data, { validateStatus: false })
+          .then((response) => {
+            res = response
+          })
+      })
+
+        it('must have the correct status code', () => {
+          const expected = 400
+          const actual = res.status
+          expect(actual).to.equal(expected)
+        })
+      })
+    })
+  })
+
   context('when user is created', () => {
     describe('the response', () => {
       let res
