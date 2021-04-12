@@ -5,7 +5,7 @@ const Procmonrest = require('procmonrest')
 const path = require('path')
 
 describe('users route', function () {
-  this.timeout(7001) // ms teams ftw
+  this.timeout(9001) // ms teams ftw
 
   const serverProcess = new Procmonrest({
     waitFor: /listening/,
@@ -21,29 +21,36 @@ describe('users route', function () {
     }
   })
 
-
   context('when required fields are missing', () => {
     context('when the first name is missing', () => {
       describe('the response', () => {
         let res
 
-      before(() => {
-        const data = {
-          lastName: 'test',
-          emailAddress: 'test@example.com',
-          password: 'test'
-        }
+        before(() => {
+          const data = {
+            lastName: 'test',
+            emailAddress: 'test@example.com',
+            password: 'test'
+          }
 
-        return axios.post('http://localhost:3000/api/users', data, { validateStatus: false })
-          .then((response) => {
-            res = response
-          })
-      })
+          return axios.post('http://localhost:3000/api/users', data, { validateStatus: false })
+            .then((response) => {
+              res = response
+            })
+        })
 
         it('must have the correct status code', () => {
           const expected = 400
           const actual = res.status
           expect(actual).to.equal(expected)
+        })
+
+        it('must have the expected body', () => {
+          const expected = {
+            errors: ['missing required field first name']
+          }
+          const actual = res.data
+          expect(actual).to.deep.equal(expected)
         })
       })
     })
