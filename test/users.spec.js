@@ -5,7 +5,7 @@ const Procmonrest = require('procmonrest')
 const path = require('path')
 
 describe('users route', function () {
-  this.timeout(9001) // ms teams ftw
+  this.timeout(7001) // ms teams ftw
 
   const serverProcess = new Procmonrest({
     waitFor: /listening/,
