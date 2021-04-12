@@ -1,8 +1,0 @@
-************************************
-*      STDOUT/STDERR LOG FILE      *
-************************************
-Command:     npm start
-
-STDOUT: > test-api@1.0.0 start
-STDOUT: > node .
-STDOUT: Server listening on port 3000
