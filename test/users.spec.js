@@ -55,6 +55,14 @@ describe('users route', function () {
         it('must include location', () => {
           expect(res.headers).to.have.property('location')
         })
+
+        describe('the location header', () => {
+          it('must have the correct value', () => {
+            const expected = '/'
+            const actual = res.headers.location
+            expect(actual).to.equal(expected)
+          })
+        })
       })
     })
   })
