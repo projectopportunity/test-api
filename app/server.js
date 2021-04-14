@@ -4,7 +4,7 @@ const server = express()
 
 server.use(express.json())
 server.use((req, res, next) => {
-  console.log('->', req.method, req.originalUrl, req.ip, req.body)
+  console.log('-> %s %s %s %j', req.method, req.originalUrl, req.ip, req.body)
   next()
 })
 
