@@ -22,43 +22,7 @@ describe('users route', function () {
   })
 
   context('when required fields are missing', () => {
-    const invalidData = [
-      {
-        description: 'missing first name',
-        input: {
-          lastName: 'test',
-          emailAddress: 'test@example.com',
-          password: 'test'
-        },
-        output: {
-          errors: ['missing required field firstName']
-        }
-      },
-      {
-        description: 'missing last name',
-        input: {
-          firstName: 'test',
-          emailAddress: 'test@example.com',
-          password: 'test'
-        },
-        output: {
-          errors: ['missing required field lastName']
-        }
-      },
-      {
-        description: 'missing first and last name',
-        input: {
-          emailAddress: 'test@example.com',
-          password: 'test'
-        },
-        output: {
-          errors: [
-            'missing required field firstName',
-            'missing required field lastName'
-          ]
-        }
-      }
-    ]
+    const invalidData = require('./invalid-user-data.json')
 
     invalidData.forEach((datum) => {
       describe(`the response for ${datum.description}`, () => {
