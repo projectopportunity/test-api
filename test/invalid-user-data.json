@@ -33,5 +33,47 @@
         "missing required field lastName"
       ]
     }
+  },
+  {
+    "description": "blank first name",
+    "input": {
+      "firstName": "",
+      "lastName": "test",
+      "emailAddress": "test@example.com",
+      "password": "test"
+    },
+    "output": {
+      "errors": [
+        "missing required field firstName"
+      ]
+    }
+  },
+  {
+    "description": "first name that is not a string",
+    "input": {
+      "firstName": 3.1415,
+      "lastName": "test",
+      "emailAddress": "test@example.com",
+      "password": "test"
+    },
+    "output": {
+      "errors": [
+        "missing required field firstName"
+      ]
+    }
+  },
+  {
+    "description": "first name that is white space",
+    "input": {
+      "firstName": "    ",
+      "lastName": "test",
+      "emailAddress": "test@example.com",
+      "password": "test"
+    },
+    "output": {
+      "errors": [
+        "missing required field firstName"
+      ]
+    }
   }
 ]

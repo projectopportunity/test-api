@@ -1,10 +1,15 @@
 const express = require('express')
 const { ulid } = require('ulid')
 
-const server = express()
+const sanitize = require('@api/utils/sanitize')
 
+const server = express()
 server.use(express.json())
 
+/**
+ * BEGINNING OF MIDDLEWARE
+ * log incoming request
+ */
 server.use((req, res, next) => {
   req.timestamp = Date.now()
   req.id = ulid()
@@ -14,13 +19,25 @@ server.use((req, res, next) => {
     req.method,
     req.originalUrl,
     req.ip,
-    req.body
+    sanitize(req.body)
   )
   next()
 })
 
+/**
+ * ROUTES
+ *
+ * USERS
+ */
 server.post('/api/users', require('@api/routes/users'))
 
+/**
+ * COURSES
+ */
+
+/**
+ * GLOBAL ERROR HANDLER
+ */
 server.use((err, req, res, next) => {
   console.error('  ', req.id, err)
 
@@ -35,17 +52,31 @@ server.use((err, req, res, next) => {
   next()
 })
 
+/**
+ * END OF MIDDLEWARE
+ * log outgoing response
+ */
 server.use((req, res) => {
   const duration = Date.now() - req.timestamp
   console.log('<-', req.id, res.statusCode, `${duration}ms`)
   res.end()
 })
 
+/**
+ * The local port that the HTTP server will be listening on.
+ * @type {Number}
+ */
 const PORT = process.env.PORT || 3000
 
+/**
+ * If any errors occur, end the process immediately.
+ */
 server.once('error', (err) => {
   console.error(err)
   process.exit(1)
 })
 
+/**
+ * Start the machine!
+ */
 server.listen(PORT, () => console.log(`Server listening on port ${PORT}`))
