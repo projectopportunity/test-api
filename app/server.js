@@ -1,20 +1,32 @@
 const express = require('express')
+const { ulid } = require('ulid')
 
 const server = express()
 
 server.use(express.json())
 
 server.use((req, res, next) => {
-  console.log('-> %s %s %s %j', req.method, req.originalUrl, req.ip, req.body)
+  req.id = res.id = ulid()
+  console.log(
+    '-> %s %s %s %s %j',
+    req.id,
+    req.method,
+    req.originalUrl,
+    req.ip,
+    req.body
+  )
   next()
 })
 
 server.post('/api/users', require('@api/routes/users'))
 
 server.use((err, req, res, next) => {
-  console.error(err)
+  console.error('  ', res.id, err)
 
-  if (Array.isArray(err.validationErrorMessages) && err.validationErrorMessages.length > 0) {
+  if (
+    Array.isArray(err.validationErrorMessages) &&
+    err.validationErrorMessages.length > 0
+  ) {
     res.status(400).json({
       errors: err.validationErrorMessages
     })
@@ -23,7 +35,7 @@ server.use((err, req, res, next) => {
 })
 
 server.use((req, res) => {
-  console.log('<-', res.statusCode)
+  console.log('<-', res.id, res.statusCode)
   res.end()
 })
 

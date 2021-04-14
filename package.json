@@ -26,6 +26,7 @@
     "standard": "^16.0.3"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "ulid": "^2.3.0"
   }
 }
