@@ -4,6 +4,10 @@ const axios = require('axios')
 const Procmonrest = require('procmonrest')
 const path = require('path')
 
+function postHttpRequest (requestData) {
+  return axios.post('http://localhost:3000/api/users', requestData, { validateStatus: false })
+}
+
 describe('users route', function () {
   this.timeout(9001) // ms teams ftw
 
@@ -28,13 +32,8 @@ describe('users route', function () {
       describe(`the response for ${datum.description}`, () => {
         let res
 
-        before(() => {
-          const data = datum.input
-
-          return axios.post('http://localhost:3000/api/users', data, { validateStatus: false })
-            .then((response) => {
-              res = response
-            })
+        before(async () => {
+          res = await postHttpRequest(datum.input)
         })
 
         it('must have the correct status code', () => {
@@ -56,18 +55,13 @@ describe('users route', function () {
     describe('the response', () => {
       let res
 
-      before(() => {
-        const data = {
+      before(async () => {
+        res = await postHttpRequest({
           firstName: 'test',
           lastName: 'test',
           emailAddress: 'test@example.com',
           password: 'test'
-        }
-
-        return axios.post('http://localhost:3000/api/users', data, { validateStatus: false })
-          .then((response) => {
-            res = response
-          })
+        })
       })
 
       it('must have correct status code', () => {
