@@ -6,7 +6,8 @@ const server = express()
 server.use(express.json())
 
 server.use((req, res, next) => {
-  req.id = res.id = ulid()
+  req.timestamp = Date.now()
+  req.id = ulid()
   console.log(
     '-> %s %s %s %s %j',
     req.id,
@@ -21,7 +22,7 @@ server.use((req, res, next) => {
 server.post('/api/users', require('@api/routes/users'))
 
 server.use((err, req, res, next) => {
-  console.error('  ', res.id, err)
+  console.error('  ', req.id, err)
 
   if (
     Array.isArray(err.validationErrorMessages) &&
@@ -35,7 +36,8 @@ server.use((err, req, res, next) => {
 })
 
 server.use((req, res) => {
-  console.log('<-', res.id, res.statusCode)
+  const duration = Date.now() - req.timestamp
+  console.log('<-', req.id, res.statusCode, `${duration}ms`)
   res.end()
 })
 
