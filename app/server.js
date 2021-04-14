@@ -3,6 +3,7 @@ const express = require('express')
 const server = express()
 
 server.use(express.json())
+
 server.use((req, res, next) => {
   console.log('-> %s %s %s %j', req.method, req.originalUrl, req.ip, req.body)
   next()
@@ -12,12 +13,19 @@ server.post('/api/users', require('@api/routes/users'))
 
 server.use((err, req, res, next) => {
   console.error(err)
+
+  if (Array.isArray(err.validationErrorMessages) && err.validationErrorMessages.length > 0) {
+    res.status(400).json({
+      errors: err.validationErrorMessages
+    })
+  }
+  next()
 })
 
 server.use((req, res) => {
   console.log('<-', res.statusCode)
+  res.end()
 })
-
 
 const PORT = process.env.PORT || 3000
 
