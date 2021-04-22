@@ -4,7 +4,9 @@
   "description": "",
   "main": "app/server.js",
   "scripts": {
-    "test": "mocha",
+    "test": "standard && npm run test:unit && npm run test:func",
+    "test:unit": "mocha \"app/**/*.spec.js\"",
+    "test:func": "mocha",
     "start": "node ."
   },
   "repository": {
