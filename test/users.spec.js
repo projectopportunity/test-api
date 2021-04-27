@@ -51,7 +51,7 @@ describe('users route', function () {
     })
   })
 
-  context.skip('when user is created', () => {
+  context.only('when user is created', () => {
     describe('the response', () => {
       let res
 
@@ -83,9 +83,9 @@ describe('users route', function () {
 
         describe('the location header', () => {
           it('must have the correct value', () => {
-            const expected = '/'
+            const expected = /^\/users\/\d+$/
             const actual = res.headers.location
-            expect(actual).to.equal(expected)
+            expect(actual).to.match(expected)
           })
         })
       })
