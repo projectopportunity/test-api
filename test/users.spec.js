@@ -1,5 +1,4 @@
 /* eslint-env mocha */
-const { expect } = require('chai')
 const axios = require('axios')
 const Procmonrest = require('procmonrest')
 const path = require('path')
