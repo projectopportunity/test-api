@@ -23,8 +23,8 @@ describe('the user account passwords that are stored in the database', () => {
       }
     )
 
-    user = await UserModel().findOne({
-      where: { username: 'test@email.com' }
+    user = await UserModel(instance.provider).findOne({
+      where: { emailAddress: 'test@email.com' }
     })
   })
 
@@ -32,7 +32,7 @@ describe('the user account passwords that are stored in the database', () => {
     // delete user
   })
 
-  it.skip('should be hashed', () => {
+  it('should be hashed', () => {
     // hash known password
     // compare to database value
     // should match
