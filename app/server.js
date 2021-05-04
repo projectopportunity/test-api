@@ -39,7 +39,7 @@ datastore.init('sqlite::memory:')
      */
 
     /**
-     * Not Found
+     * NOT FOUND
      */
 
     server.use((req, res) => {

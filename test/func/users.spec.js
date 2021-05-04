@@ -9,7 +9,7 @@ function postHttpRequest (route, requestData) {
   return axios.post(url, requestData, { validateStatus: false })
 }
 
-describe.skip('users route', function () {
+describe('users route', function () {
   this.timeout(9001) // ms teams ftw
 
   const serverProcess = new Procmonrest({
