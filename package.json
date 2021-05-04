@@ -6,8 +6,8 @@
   "scripts": {
     "test": "standard && npm run test:unit && npm run test:func && npm run test:security",
     "test:unit": "mocha \"app/**/*.spec.js\"",
-    "test:func": "mocha",
-    "test:security": "mocha \"security/*.spec.js\"",
+    "test:func": "mocha \"test/func/*.spec.js\"",
+    "test:security": "mocha \"test/security/*.spec.js\"",
     "start": "node ."
   },
   "repository": {

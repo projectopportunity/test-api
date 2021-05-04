@@ -1,0 +1,13 @@
+************************************
+*      STDOUT/STDERR LOG FILE      *
+************************************
+Command:     npm start
+
+STDOUT: > test-api@1.0.0 start C:\Users\TCMURPHY\Desktop\Test API\test-api
+STDOUT: > node .
+STDOUT: Executing (default): CREATE TABLE IF NOT EXISTS `Users` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `firstName` VARCHAR(255), `lastName` VARCHAR(255), `emailAddress` VARCHAR(255), `password` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL);
+STDOUT: Executing (default): PRAGMA INDEX_LIST(`Users`)
+STDOUT: Server listening on port 3000
+STDOUT: -> 01F4WEER2XQ72H5XREZS59K5EZ POST /api/this/route/does/not/exist ::ffff:127.0.0.1 {"password":"*"}
+STDOUT: <- 01F4WEER2XQ72H5XREZS59K5EZ 200 2ms
+EXIT CODE: 1
