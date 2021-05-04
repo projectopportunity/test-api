@@ -39,6 +39,14 @@ datastore.init('sqlite::memory:')
      */
 
     /**
+     * Not Found
+     */
+
+    server.use((req, res) => {
+      res.status(404).end()
+    })
+
+    /**
      * GLOBAL ERROR HANDLER
      */
     server.use((err, req, res, next) => {
@@ -64,6 +72,7 @@ datastore.init('sqlite::memory:')
       console.log('<-', req.id, res.statusCode, `${duration}ms`)
       res.end()
     })
+
 
     /**
      * The local port that the HTTP server will be listening on.
