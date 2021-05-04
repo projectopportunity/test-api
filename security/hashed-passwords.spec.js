@@ -36,8 +36,8 @@ describe('the user account passwords that are stored in the database', () => {
     // hash known password
     // compare to database value
     // should match
-    const actual = user.password
-    const expected = hash('test')
+    const expected = true
+    const actual = hash.compareToHash('test', user.password)
     expect(actual).to.equal(expected)
   })
 })
