@@ -41,9 +41,11 @@ datastore.init('sqlite::memory:')
     /**
      * NOT FOUND
      */
-
-    server.use((req, res) => {
-      res.status(404).end()
+    server.use((req, res, next) => {
+      if (!req.route) {
+        throw new Error('resource not found')
+      }
+      next()
     })
 
     /**
@@ -52,7 +54,9 @@ datastore.init('sqlite::memory:')
     server.use((err, req, res, next) => {
       console.error('  ', req.id, err)
 
-      if (
+      if (err.message === 'resource not found') {
+        res.status(404)
+      } else if (
         Array.isArray(err.validationErrorMessages) &&
         err.validationErrorMessages.length > 0
       ) {
@@ -60,6 +64,7 @@ datastore.init('sqlite::memory:')
           errors: err.validationErrorMessages
         })
       }
+
       next()
     })
 
@@ -72,7 +77,6 @@ datastore.init('sqlite::memory:')
       console.log('<-', req.id, res.statusCode, `${duration}ms`)
       res.end()
     })
-
 
     /**
      * The local port that the HTTP server will be listening on.

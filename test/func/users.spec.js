@@ -65,7 +65,7 @@ describe('users route', function () {
         })
       })
 
-      it('must have correct status code', () => {
+      it.only('must have correct status code', () => {
         const expected = 201
         const actual = res.status
         expect(actual).to.equal(expected)
