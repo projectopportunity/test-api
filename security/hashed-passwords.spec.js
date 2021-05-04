@@ -1,5 +1,4 @@
 /* eslint-env mocha */
-/* global expect */
 const hash = require('../app/node_modules/@api/utils/hash/index.js')
 const UserModel = require('../app/node_modules/@api/datastore/models/Users.js')
 const T = require('../app/node_modules/@api/datastore/index.js')
@@ -29,13 +28,10 @@ describe('the user account passwords that are stored in the database', () => {
   })
 
   after(() => {
-    // delete user
+    // delete user - eventually
   })
 
   it('should be hashed', () => {
-    // hash known password
-    // compare to database value
-    // should match
     const expected = true
     const actual = hash.compareToHash('test', user.password)
     expect(actual).to.equal(expected)

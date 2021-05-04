@@ -1,10 +1,12 @@
 /* eslint-env mocha */
+
 const axios = require('axios')
 const Procmonrest = require('procmonrest')
 const path = require('path')
 
-function postHttpRequest (requestData) {
-  return axios.post('http://localhost:3000/api/users', requestData, { validateStatus: false })
+function postHttpRequest (route, requestData) {
+  const url = `http://localhost:3000/api/${route}`
+  return axios.post(url, requestData, { validateStatus: false })
 }
 
 describe('users route', function () {
@@ -32,7 +34,7 @@ describe('users route', function () {
         let res
 
         before(async () => {
-          res = await postHttpRequest(datum.input)
+          res = await postHttpRequest('users', datum.input)
         })
 
         it('must have the correct status code', () => {
@@ -50,12 +52,12 @@ describe('users route', function () {
     })
   })
 
-  context.only('when user is created', () => {
+  context('when user is created', () => {
     describe('the response', () => {
       let res
 
       before(async () => {
-        res = await postHttpRequest({
+        res = await postHttpRequest('users', {
           firstName: 'test',
           lastName: 'test',
           emailAddress: 'test@example.com',
@@ -88,6 +90,37 @@ describe('users route', function () {
           })
         })
       })
+    })
+  })
+  context('when user logs in', () => {
+    context('and the credentials are invalid', () => {
+      describe('the response', () => {
+        
+        let res
+
+        before(async () => {
+          res = await postHttpRequest('users', {
+            firstName: 'test',
+            lastName: 'test',
+            emailAddress: 'test@example.com',
+            password: 'test'
+          })
+
+          res = await postHttpRequest('users/login', {
+            emailAddress: 'test@example.com',
+            password: '12312343546'
+          })
+        })
+
+        it('must have correct status code', () => {
+          const expected = 401
+          const actual = res.status
+          expect(actual).to.equal(expected)
+        })
+      })
+    })
+    context('and the credentials are valid', () => {
+    
     })
   })
 })
