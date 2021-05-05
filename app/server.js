@@ -34,6 +34,8 @@ datastore.init('sqlite::memory:')
      */
     server.post('/api/users', require('@api/routes/users'))
 
+    server.post('/api/users/login', require('@api/routes/users/login'))
+
     /**
      * COURSES
      */
@@ -56,6 +58,8 @@ datastore.init('sqlite::memory:')
 
       if (err.message === 'resource not found') {
         res.status(404)
+      } else if (err.message === 'invalid login') {
+        res.status(401)
       } else if (
         Array.isArray(err.validationErrorMessages) &&
         err.validationErrorMessages.length > 0
@@ -63,6 +67,8 @@ datastore.init('sqlite::memory:')
         res.status(400).json({
           errors: err.validationErrorMessages
         })
+      } else {
+        res.status(500)
       }
 
       next()

@@ -89,7 +89,6 @@ describe('users route', function () {
   context('when user logs in', () => {
     context('and the credentials are invalid', () => {
       describe('the response', () => {
-        
         let res
 
         before(async () => {
