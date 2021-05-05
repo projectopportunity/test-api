@@ -1,7 +1,7 @@
 /* eslint-env mocha */
-const hash = require('../app/node_modules/@api/utils/hash/index.js')
-const UserModel = require('../app/node_modules/@api/datastore/models/Users.js')
-const T = require('../app/node_modules/@api/datastore/index.js')
+const hash = require('../../app/node_modules/@api/utils/hash/index.js')
+const UserModel = require('../../app/node_modules/@api/datastore/models/Users.js')
+const T = require('../../app/node_modules/@api/datastore/index.js')
 
 describe('the user account passwords that are stored in the database', () => {
   let user
