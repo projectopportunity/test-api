@@ -1,16 +1,10 @@
 /* eslint-env mocha */
 
-const axios = require('axios')
 const Procmonrest = require('procmonrest')
 const path = require('path')
 
-function postHttpRequest (route, requestData) {
-  const url = `http://localhost:3000/api/${route}`
-  return axios.post(url, requestData, { validateStatus: false })
-}
-
 describe('route that does not exist', function () {
-  this.timeout(9001) // ms teams ftw
+  this.timeout(global.ttl) // ms teams ftw
 
   const serverProcess = new Procmonrest({
     waitFor: /listening/,

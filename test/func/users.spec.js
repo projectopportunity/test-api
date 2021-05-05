@@ -1,16 +1,10 @@
 /* eslint-env mocha */
 
-const axios = require('axios')
 const Procmonrest = require('procmonrest')
 const path = require('path')
 
-function postHttpRequest (route, requestData) {
-  const url = `http://localhost:3000/api/${route}`
-  return axios.post(url, requestData, { validateStatus: false })
-}
-
 describe('users route', function () {
-  this.timeout(9001) // ms teams ftw
+  this.timeout(global.ttl) // ms teams ftw
 
   const serverProcess = new Procmonrest({
     waitFor: /listening/,
@@ -65,7 +59,7 @@ describe('users route', function () {
         })
       })
 
-      it.only('must have correct status code', () => {
+      it('must have correct status code', () => {
         const expected = 201
         const actual = res.status
         expect(actual).to.equal(expected)

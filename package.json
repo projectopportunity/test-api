@@ -42,7 +42,8 @@
   },
   "standard": {
     "global": [
-      "expect"
+      "expect",
+      "postHttpRequest"
     ]
   }
 }

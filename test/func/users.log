@@ -8,7 +8,206 @@ STDOUT: > node .
 STDOUT: Executing (default): CREATE TABLE IF NOT EXISTS `Users` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `firstName` VARCHAR(255), `lastName` VARCHAR(255), `emailAddress` VARCHAR(255), `password` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL);
 STDOUT: Executing (default): PRAGMA INDEX_LIST(`Users`)
 STDOUT: Server listening on port 3000
-STDOUT: -> 01F4WJ373ETYCFBT2S2N5YMJKX POST /api/users ::ffff:127.0.0.1 {"firstName":"test","lastName":"test","emailAddress":"test@example.com","password":"*"}
+STDOUT: -> 01F4YH7F2EF7XHPSY7WQGNDCER POST /api/users ::ffff:127.0.0.1 {"lastName":"test","emailAddress":"test@example.com","password":"*"}
+STDERR:    01F4YH7F2EF7XHPSY7WQGNDCER Error
+STDERR:     at module.exports (C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\node_modules\@api\routes\users\index.js:45:17)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:137:13)
+STDERR:     at Route.dispatch (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:112:3)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:281:22
+STDERR:     at Function.process_params (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:335:12)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:275:10)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\server.js:27:7
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5) {
+STDERR:   validationErrorMessages: [ 'missing required field firstName' ]
+STDERR: }
+STDOUT: <- 01F4YH7F2EF7XHPSY7WQGNDCER 400 29ms
+STDOUT: -> 01F4YH7F53K4TT8XNRXQVRQA73 POST /api/users ::ffff:127.0.0.1 {"firstName":"test","emailAddress":"test@example.com","password":"*"}
+STDERR:    01F4YH7F53K4TT8XNRXQVRQA73 Error
+STDERR:     at module.exports (C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\node_modules\@api\routes\users\index.js:45:17)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:137:13)
+STDERR:     at Route.dispatch (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:112:3)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:281:22
+STDERR:     at Function.process_params (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:335:12)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:275:10)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\server.js:27:7
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5) {
+STDERR:   validationErrorMessages: [ 'missing required field lastName' ]
+STDERR: }
+STDOUT: <- 01F4YH7F53K4TT8XNRXQVRQA73 400 2ms
+STDOUT: -> 01F4YH7FK87M2QK07WFYVQXH00 POST /api/users ::ffff:127.0.0.1 {"emailAddress":"test@example.com","password":"*"}
+STDERR:    01F4YH7FK87M2QK07WFYVQXH00 Error
+STDERR:     at module.exports (C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\node_modules\@api\routes\users\index.js:45:17)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:137:13)
+STDERR:     at Route.dispatch (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:112:3)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:281:22
+STDERR:     at Function.process_params (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:335:12)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:275:10)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\server.js:27:7
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5) {
+STDERR:   validationErrorMessages: [
+STDERR:     'missing required field firstName',
+STDERR:     'missing required field lastName'
+STDERR:   ]
+STDERR: }
+STDOUT: <- 01F4YH7FK87M2QK07WFYVQXH00 400 10ms
+STDOUT: -> 01F4YH7GMS1DDJE6W0JWCXQ1GK POST /api/users ::ffff:127.0.0.1 {"firstName":"","lastName":"test","emailAddress":"test@example.com","password":"*"}
+STDERR:    01F4YH7GMS1DDJE6W0JWCXQ1GK Error
+STDERR:     at module.exports (C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\node_modules\@api\routes\users\index.js:45:17)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:137:13)
+STDERR:     at Route.dispatch (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:112:3)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:281:22
+STDERR:     at Function.process_params (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:335:12)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:275:10)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\server.js:27:7
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5) {
+STDERR:   validationErrorMessages: [ 'missing required field firstName' ]
+STDERR: }
+STDOUT: <- 01F4YH7GMS1DDJE6W0JWCXQ1GK 400 5ms
+STDOUT: -> 01F4YH7GSETMF8BMDNZRH399NM POST /api/users ::ffff:127.0.0.1 {"firstName":3.1415,"lastName":"test","emailAddress":"test@example.com","password":"*"}
+STDERR:    01F4YH7GSETMF8BMDNZRH399NM Error
+STDERR:     at module.exports (C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\node_modules\@api\routes\users\index.js:45:17)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:137:13)
+STDERR:     at Route.dispatch (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:112:3)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:281:22
+STDERR:     at Function.process_params (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:335:12)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:275:10)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\server.js:27:7
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5) {
+STDERR:   validationErrorMessages: [ 'missing required field firstName' ]
+STDERR: }
+STDOUT: <- 01F4YH7GSETMF8BMDNZRH399NM 400 2ms
+STDOUT: -> 01F4YH7H76XYZTVSM70E0124X4 POST /api/users ::ffff:127.0.0.1 {"firstName":"    ","lastName":"test","emailAddress":"test@example.com","password":"*"}
+STDERR:    01F4YH7H76XYZTVSM70E0124X4 Error
+STDERR:     at module.exports (C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\node_modules\@api\routes\users\index.js:45:17)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:137:13)
+STDERR:     at Route.dispatch (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:112:3)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:281:22
+STDERR:     at Function.process_params (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:335:12)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:275:10)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\server.js:27:7
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5) {
+STDERR:   validationErrorMessages: [ 'missing required field firstName' ]
+STDERR: }
+STDOUT: <- 01F4YH7H76XYZTVSM70E0124X4 400 8ms
+STDOUT: -> 01F4YH7HK1S13TTFK2DYN2ZEYJ POST /api/users ::ffff:127.0.0.1 {"firstName":"test","lastName":"test","password":"*"}
+STDERR:    01F4YH7HK1S13TTFK2DYN2ZEYJ Error
+STDERR:     at module.exports (C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\node_modules\@api\routes\users\index.js:45:17)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:137:13)
+STDERR:     at Route.dispatch (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:112:3)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:281:22
+STDERR:     at Function.process_params (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:335:12)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:275:10)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\server.js:27:7
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5) {
+STDERR:   validationErrorMessages: [ 'missing required field emailAddress' ]
+STDERR: }
+STDOUT: <- 01F4YH7HK1S13TTFK2DYN2ZEYJ 400 6ms
+STDOUT: -> 01F4YH7HSKD43Y1SFXFRPJ9WHA POST /api/users ::ffff:127.0.0.1 {"firstName":"test","lastName":"test","emailAddress":"","password":"*"}
+STDERR:    01F4YH7HSKD43Y1SFXFRPJ9WHA Error
+STDERR:     at module.exports (C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\node_modules\@api\routes\users\index.js:45:17)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:137:13)
+STDERR:     at Route.dispatch (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:112:3)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:281:22
+STDERR:     at Function.process_params (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:335:12)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:275:10)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\server.js:27:7
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5) {
+STDERR:   validationErrorMessages: [ 'missing required field emailAddress' ]
+STDERR: }
+STDOUT: <- 01F4YH7HSKD43Y1SFXFRPJ9WHA 400 8ms
+STDOUT: -> 01F4YH7J58Y52B5N71Z34KXD7R POST /api/users ::ffff:127.0.0.1 {"firstName":"test","lastName":"test","emailAddress":"       ","password":"*"}
+STDERR:    01F4YH7J58Y52B5N71Z34KXD7R Error
+STDERR:     at module.exports (C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\node_modules\@api\routes\users\index.js:45:17)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:137:13)
+STDERR:     at Route.dispatch (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:112:3)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:281:22
+STDERR:     at Function.process_params (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:335:12)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:275:10)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\server.js:27:7
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5) {
+STDERR:   validationErrorMessages: [ 'missing required field emailAddress' ]
+STDERR: }
+STDOUT: <- 01F4YH7J58Y52B5N71Z34KXD7R 400 4ms
+STDOUT: -> 01F4YH7K40DTCKP8NHN0ZG01XD POST /api/users ::ffff:127.0.0.1 {"firstName":"test","lastName":"test","emailAddress":"test@test.com","password":"*"}
+STDERR:    01F4YH7K40DTCKP8NHN0ZG01XD Error
+STDERR:     at module.exports (C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\node_modules\@api\routes\users\index.js:45:17)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:137:13)
+STDERR:     at Route.dispatch (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:112:3)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:281:22
+STDERR:     at Function.process_params (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:335:12)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:275:10)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\server.js:27:7
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5) {
+STDERR:   validationErrorMessages: [ 'missing required field password' ]
+STDERR: }
+STDOUT: <- 01F4YH7K40DTCKP8NHN0ZG01XD 400 4ms
+STDOUT: -> 01F4YH7M3EZT3F7KKQ3ZYF7QDT POST /api/users ::ffff:127.0.0.1 {"firstName":"test","lastName":"test","emailAddress":"test@test.com","password":"*"}
+STDERR:    01F4YH7M3EZT3F7KKQ3ZYF7QDT Error
+STDERR:     at module.exports (C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\node_modules\@api\routes\users\index.js:45:17)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:137:13)
+STDERR:     at Route.dispatch (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:112:3)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:281:22
+STDERR:     at Function.process_params (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:335:12)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:275:10)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\server.js:27:7
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5) {
+STDERR:   validationErrorMessages: [ 'missing required field password' ]
+STDERR: }
+STDOUT: <- 01F4YH7M3EZT3F7KKQ3ZYF7QDT 400 6ms
+STDOUT: -> 01F4YH7N1QVZ706FKK43N3P3Z8 POST /api/users ::ffff:127.0.0.1 {"firstName":"test","lastName":"test","emailAddress":"test@test.com","password":"*"}
+STDERR:    01F4YH7N1QVZ706FKK43N3P3Z8 Error
+STDERR:     at module.exports (C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\node_modules\@api\routes\users\index.js:45:17)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:137:13)
+STDERR:     at Route.dispatch (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:112:3)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:281:22
+STDERR:     at Function.process_params (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:335:12)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:275:10)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\server.js:27:7
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5) {
+STDERR:   validationErrorMessages: [ 'missing required field password' ]
+STDERR: }
+STDOUT: <- 01F4YH7N1QVZ706FKK43N3P3Z8 400 5ms
+STDOUT: -> 01F4YH7NRFAATE711EGZNK3847 POST /api/users ::ffff:127.0.0.1 {"firstName":"test","lastName":"test","emailAddress":"test@example.com","password":"*"}
 STDOUT: Executing (default): INSERT INTO `Users` (`id`,`firstName`,`lastName`,`emailAddress`,`password`,`createdAt`,`updatedAt`) VALUES (NULL,$1,$2,$3,$4,$5,$6);
-STDOUT: <- 01F4WJ373ETYCFBT2S2N5YMJKX 201 345ms
+STDOUT: <- 01F4YH7NRFAATE711EGZNK3847 201 472ms
+STDOUT: -> 01F4YH7PWDNJXBBFESSHNER4XA POST /api/users ::ffff:127.0.0.1 {"firstName":"test","lastName":"test","emailAddress":"test@example.com","password":"*"}
+STDOUT: Executing (default): INSERT INTO `Users` (`id`,`firstName`,`lastName`,`emailAddress`,`password`,`createdAt`,`updatedAt`) VALUES (NULL,$1,$2,$3,$4,$5,$6);
+STDOUT: <- 01F4YH7PWDNJXBBFESSHNER4XA 201 322ms
+STDOUT: -> 01F4YH7Q6ZGRJ8SJBK342PKW6F POST /api/users/login ::ffff:127.0.0.1 {"emailAddress":"test@example.com","password":"*"}
+STDERR:    01F4YH7Q6ZGRJ8SJBK342PKW6F Error: resource not found
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\server.js:46:15
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at trim_prefix (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:317:13)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:284:7
+STDERR:     at Function.process_params (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:335:12)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:275:10)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\server.js:27:7
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at trim_prefix (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:317:13)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:284:7
+STDOUT: <- 01F4YH7Q6ZGRJ8SJBK342PKW6F 404 1ms
 EXIT CODE: 1
