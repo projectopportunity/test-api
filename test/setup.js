@@ -15,4 +15,4 @@ global.postHttpRequest = (route, requestData) => {
  *
  * @type {Number}
  */
-global.ttl = 12001
+global.ttl = 14000

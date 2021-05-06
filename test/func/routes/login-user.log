@@ -8,63 +8,63 @@ STDOUT: > node .
 STDOUT: Executing (default): CREATE TABLE IF NOT EXISTS `Users` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `firstName` VARCHAR(255), `lastName` VARCHAR(255), `emailAddress` VARCHAR(255), `password` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL);
 STDOUT: Executing (default): PRAGMA INDEX_LIST(`Users`)
 STDOUT: Server listening on port 3000
-STDOUT: -> 01F51GG93YJ4VJJ9CS06W8A7X3 POST /api/users ::ffff:127.0.0.1 {"firstName":"test","lastName":"test","emailAddress":"test@example.com","password":"*"}
+STDOUT: -> 01F51K0J1D7A8FA2J54NNF3TM8 POST /api/users ::ffff:127.0.0.1 {"firstName":"test first","lastName":"test last","emailAddress":"test@example.com","password":"*"}
 STDOUT: Executing (default): INSERT INTO `Users` (`id`,`firstName`,`lastName`,`emailAddress`,`password`,`createdAt`,`updatedAt`) VALUES (NULL,$1,$2,$3,$4,$5,$6);
-STDOUT: <- 01F51GG93YJ4VJJ9CS06W8A7X3 201 233ms
-STDOUT: -> 01F51GG9BT5NDXAAX61RNFCH63 POST /api/users/login ::ffff:127.0.0.1 {"emailAddress":"test@example.com","password":"*"}
+STDOUT: <- 01F51K0J1D7A8FA2J54NNF3TM8 201 280ms
+STDOUT: -> 01F51K0JAPEMC5V6S6NCVHF0PR POST /api/users/login ::ffff:127.0.0.1 {"emailAddress":"test@example.com","password":"*"}
 STDOUT: Executing (default): SELECT `id`, `firstName`, `lastName`, `emailAddress`, `password`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`emailAddress` = 'test@example.com' LIMIT 1;
-STDERR:    01F51GG9BT5NDXAAX61RNFCH63 Error: invalid login
-STDERR:     at C:\Users\aallen6\Documents\Code\test-api\app\node_modules\@api\routes\users\login\index.js:59:14
-STDOUT: <- 01F51GG9BT5NDXAAX61RNFCH63 401 231ms
-STDOUT: -> 01F51GG9KHHG9EECSV6G810E80 POST /api/users/login ::ffff:127.0.0.1 {"password":"*"}
-STDERR:    01F51GG9KHHG9EECSV6G810E80 Error
-STDERR:     at module.exports (C:\Users\aallen6\Documents\Code\test-api\app\node_modules\@api\routes\users\login\index.js:42:17)
-STDERR:     at Layer.handle [as handle_request] (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\layer.js:95:5)
-STDERR:     at next (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\route.js:137:13)
-STDERR:     at Route.dispatch (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\route.js:112:3)
-STDERR:     at Layer.handle [as handle_request] (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\layer.js:95:5)
-STDERR:     at C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\index.js:281:22
-STDERR:     at Function.process_params (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\index.js:335:12)
-STDERR:     at next (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\index.js:275:10)
-STDERR:     at C:\Users\aallen6\Documents\Code\test-api\app\server.js:27:7
-STDERR:     at Layer.handle [as handle_request] (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\layer.js:95:5) {
+STDERR:    01F51K0JAPEMC5V6S6NCVHF0PR Error: invalid login
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\node_modules\@api\routes\users\login\index.js:63:14
+STDOUT: <- 01F51K0JAPEMC5V6S6NCVHF0PR 401 283ms
+STDOUT: -> 01F51K0JN1B28A81WMAAPBW096 POST /api/users/login ::ffff:127.0.0.1 {"password":"*"}
+STDERR:    01F51K0JN1B28A81WMAAPBW096 Error
+STDERR:     at module.exports (C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\node_modules\@api\routes\users\login\index.js:42:17)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:137:13)
+STDERR:     at Route.dispatch (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:112:3)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:281:22
+STDERR:     at Function.process_params (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:335:12)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:275:10)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\server.js:27:7
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5) {
 STDERR:   validationErrorMessages: [
 STDERR:     'missing required field emailAddress',
 STDERR:     'missing required field password'
 STDERR:   ]
 STDERR: }
-STDOUT: <- 01F51GG9KHHG9EECSV6G810E80 400 13ms
-STDOUT: -> 01F51GG9MCRS32QCXAM3S09K4F POST /api/users/login ::ffff:127.0.0.1 {"password":"*"}
-STDERR:    01F51GG9MCRS32QCXAM3S09K4F Error
-STDERR:     at module.exports (C:\Users\aallen6\Documents\Code\test-api\app\node_modules\@api\routes\users\login\index.js:42:17)
-STDERR:     at Layer.handle [as handle_request] (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\layer.js:95:5)
-STDERR:     at next (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\route.js:137:13)
-STDERR:     at Route.dispatch (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\route.js:112:3)
-STDERR:     at Layer.handle [as handle_request] (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\layer.js:95:5)
-STDERR:     at C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\index.js:281:22
-STDERR:     at Function.process_params (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\index.js:335:12)
-STDERR:     at next (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\index.js:275:10)
-STDERR:     at C:\Users\aallen6\Documents\Code\test-api\app\server.js:27:7
-STDERR:     at Layer.handle [as handle_request] (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\layer.js:95:5) {
+STDOUT: <- 01F51K0JN1B28A81WMAAPBW096 400 9ms
+STDOUT: -> 01F51K0JPTQNVRNA1Z9Y2DFYJ8 POST /api/users/login ::ffff:127.0.0.1 {"password":"*"}
+STDERR:    01F51K0JPTQNVRNA1Z9Y2DFYJ8 Error
+STDERR:     at module.exports (C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\node_modules\@api\routes\users\login\index.js:42:17)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:137:13)
+STDERR:     at Route.dispatch (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:112:3)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:281:22
+STDERR:     at Function.process_params (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:335:12)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:275:10)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\server.js:27:7
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5) {
 STDERR:   validationErrorMessages: [ 'missing required field emailAddress' ]
 STDERR: }
-STDOUT: <- 01F51GG9MCRS32QCXAM3S09K4F 400 3ms
-STDOUT: -> 01F51GG9MSFBPBKD2X9ZDSCA0Y POST /api/users/login ::ffff:127.0.0.1 {"emailAddress":"test@example.com","password":"*"}
-STDERR:    01F51GG9MSFBPBKD2X9ZDSCA0Y Error
-STDERR:     at module.exports (C:\Users\aallen6\Documents\Code\test-api\app\node_modules\@api\routes\users\login\index.js:42:17)
-STDERR:     at Layer.handle [as handle_request] (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\layer.js:95:5)
-STDERR:     at next (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\route.js:137:13)
-STDERR:     at Route.dispatch (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\route.js:112:3)
-STDERR:     at Layer.handle [as handle_request] (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\layer.js:95:5)
-STDERR:     at C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\index.js:281:22
-STDERR:     at Function.process_params (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\index.js:335:12)
-STDERR:     at next (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\index.js:275:10)
-STDERR:     at C:\Users\aallen6\Documents\Code\test-api\app\server.js:27:7
-STDERR:     at Layer.handle [as handle_request] (C:\Users\aallen6\Documents\Code\test-api\node_modules\express\lib\router\layer.js:95:5) {
+STDOUT: <- 01F51K0JPTQNVRNA1Z9Y2DFYJ8 400 2ms
+STDOUT: -> 01F51K0JRTG76GADFGMD4XAT8W POST /api/users/login ::ffff:127.0.0.1 {"emailAddress":"test@example.com","password":"*"}
+STDERR:    01F51K0JRTG76GADFGMD4XAT8W Error
+STDERR:     at module.exports (C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\node_modules\@api\routes\users\login\index.js:42:17)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:137:13)
+STDERR:     at Route.dispatch (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\route.js:112:3)
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:281:22
+STDERR:     at Function.process_params (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:335:12)
+STDERR:     at next (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\index.js:275:10)
+STDERR:     at C:\Users\dburbine\Desktop\treehouse_examples\test-api\app\server.js:27:7
+STDERR:     at Layer.handle [as handle_request] (C:\Users\dburbine\Desktop\treehouse_examples\test-api\node_modules\express\lib\router\layer.js:95:5) {
 STDERR:   validationErrorMessages: [ 'missing required field password' ]
 STDERR: }
-STDOUT: <- 01F51GG9MSFBPBKD2X9ZDSCA0Y 400 4ms
-STDOUT: -> 01F51GG9N59VA1FPZ003QT5BQD POST /api/users/login ::ffff:127.0.0.1 {"emailAddress":"test@example.com","password":"*"}
+STDOUT: <- 01F51K0JRTG76GADFGMD4XAT8W 400 8ms
+STDOUT: -> 01F51K0JW523ZAJ5MNSAE356V2 POST /api/users/login ::ffff:127.0.0.1 {"emailAddress":"test@example.com","password":"*"}
 STDOUT: Executing (default): SELECT `id`, `firstName`, `lastName`, `emailAddress`, `password`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`emailAddress` = 'test@example.com' LIMIT 1;
-STDOUT: <- 01F51GG9N59VA1FPZ003QT5BQD 200 221ms
+STDOUT: <- 01F51K0JW523ZAJ5MNSAE356V2 200 271ms
 EXIT CODE: 1

@@ -24,8 +24,8 @@ describe('users route', function () {
   context('when user logs in', () => {
     before(async () => {
       await postHttpRequest('users', {
-        firstName: 'test',
-        lastName: 'test',
+        firstName: 'test first',
+        lastName: 'test last',
         emailAddress: 'test@example.com',
         password: 'test'
       })
@@ -117,6 +117,21 @@ describe('users route', function () {
           const expected = 200
           const actual = res.status
           expect(actual).to.equal(expected)
+        })
+
+        it('must have the correct content type', () => {
+          const expected = /^application\/json/
+          const actual = res.headers['content-type']
+          expect(actual).to.match(expected)
+        })
+
+        it('must contain the correct data', () => {
+          const expected = {
+            firstName: 'test first',
+            lastName: 'test last'
+          }
+          const actual = res.data
+          expect(actual).to.deep.equal(expected)
         })
       })
     })
