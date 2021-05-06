@@ -8,12 +8,13 @@ describe('users route', function () {
 
   const serverProcess = new Procmonrest({
     waitFor: /listening/,
-    saveLogTo: path.join(__dirname, 'users.log')
+    saveLogTo: path.join(__dirname, 'create-user.log')
   })
 
   before(() => {
     return serverProcess.start()
   })
+
   after(() => {
     if (serverProcess.isRunning) {
       return serverProcess.stop()
@@ -84,36 +85,6 @@ describe('users route', function () {
           })
         })
       })
-    })
-  })
-  context('when user logs in', () => {
-    context('and the credentials are invalid', () => {
-      describe('the response', () => {
-        let res
-
-        before(async () => {
-          res = await postHttpRequest('users', {
-            firstName: 'test',
-            lastName: 'test',
-            emailAddress: 'test@example.com',
-            password: 'test'
-          })
-
-          res = await postHttpRequest('users/login', {
-            emailAddress: 'test@example.com',
-            password: '12312343546'
-          })
-        })
-
-        it('must have correct status code', () => {
-          const expected = 401
-          const actual = res.status
-          expect(actual).to.equal(expected)
-        })
-      })
-    })
-    context('and the credentials are valid', () => {
-    
     })
   })
 })
